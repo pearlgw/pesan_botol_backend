@@ -5,6 +5,7 @@ const app = express()
 const cors = require("cors")
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
+require('./config/database');
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,7 +15,7 @@ const messageRoutes = require("./routes/Message");
 app.use("/api/messages", messageRoutes);
 
 const replyMessageRoutes = require("./routes/ReplyMessage");
-app.use("/api/messages", replyMessageRoutes);
+app.use("/api/messages/:message_id/reply", replyMessageRoutes);
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
