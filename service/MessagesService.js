@@ -1,4 +1,5 @@
 const connection = require('../config/database');
+const AppError = require('../utils/AppError');
 
 exports.getAllMessagesService = () => {
     return new Promise((resolve, reject) => {
