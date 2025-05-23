@@ -15,7 +15,7 @@ const messageRoutes = require("./routes/Message");
 app.use("/api/messages", messageRoutes);
 
 const replyMessageRoutes = require("./routes/ReplyMessage");
-app.use("/api/messages/:message_id/reply", replyMessageRoutes);
+app.use("/api/messages", replyMessageRoutes);
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
